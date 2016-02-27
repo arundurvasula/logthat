@@ -6,7 +6,7 @@ A program that remembers what you did to your data so you don't have to.
 
 **Why?**
 
-Remembering exactly what you did to your data is hard (especially after it's been more than a month). Computers are good at remembering things. It seems like a decent idea to have your computer keep track of what you did to your data.
+Remembering exactly what you did to your data is hard (especially after it's been a while). Computers are good at remembering things. It seems like a decent idea to have your computer keep track of what you did to your data.
 
 **How?**
 
@@ -18,7 +18,7 @@ Sort of. But by default bash only keeps the last 1000 commands you entered, whic
 
 **Couldn't this program be avoided by writing scripts for all data analysis?**
 
-In a perfect world, yes. But the reality is it's easier to write an awk one-liner and forget about it than it is to save your one-liner in a script.
+In a perfect world, yes. But the reality is it's often easier to write an awk one-liner and forget about it than it is to save your one-liner in a script.
 
 **What sorts of things can we log?**
 
