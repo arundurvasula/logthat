@@ -90,3 +90,22 @@ This command line program will have a few commands.
 `lt view <arg>` - view the file or directory supplied in pretty printed JSON. Should often be combined with `| less` to make output scrollable. If nothing is supplied it tries to read the `.lt` file in the current directory or outputs an error if there is none.
 
 `lt restart` - restarts the daemon for whatever reason you may need (it got killed, it's acting weird, whatever).
+
+---
+
+Whoops. There's a timing issue. The program has to access the file long enough to run the lsof command and get the output which doesn't happen on short commands. Also it doesn't seem like it captures the entire command when I run `lsof` in a process that I open.
+
+Trivial example: https://gist.github.com/arundurvasula/53f6d430152a175e348e
+Test like the following
+
+    $ gcc inotifyt.c
+    $ ./a.out
+
+Open a new shell. `a.out` will watch the `/home/adurvasu/` for file opening. To get an event long enough to detect, run the following:
+
+    $ awk '{while(1) print}' a.txt > /dev/null
+    
+(^+C to exit). `a.out` should print `Command: awk`. There are two issues here:
+
+1. It doesn't print the whole command. I believe this is because all the spaces are represented as `\0`, which is the null character and signifies the end of a string in C. I need to figure out how to swap these out with real spaces.
+2. The commands have to be run long enough for `a.out` to catch them. I don't know what the lower limit is, but it would be nice to catch all file openings, not just long ones. Though this shouldn't be a problem for long commands (i.e. an awk script though a VCF or a bcftools call). Also not a problem for less apparently.
