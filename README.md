@@ -22,13 +22,14 @@ In a perfect world, yes. But the reality is it's often easier to write an awk on
 
 **What sorts of things can we log?**
 
-UNIX one-liners (long piped commands, awk commands, etc.), field specific commands (i.e. for bioinformatics: samtools/bcftools/whatever long commands), scripts (Python/R/whatever).
+UNIX one-liners (long piped commands, awk commands, etc.), field specific commands (i.e. for bioinformatics: samtools/bcftools/whatever long commands)
 
 **This already exists!!!**
 
 Oh thank goodness. Could you send it to me?
 
 **What's a daemon?**
+
 A program that runs in the background.
 
 ---
