@@ -28,6 +28,9 @@ UNIX one-liners (long piped commands, awk commands, etc.), field specific comman
 
 Oh thank goodness. Could you send it to me?
 
+**What's a daemon?**
+A program that runs in the background.
+
 ---
 
 Here's how I'm thinking this program will be used:
