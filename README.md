@@ -92,6 +92,9 @@ This command line program will have a few commands.
 `lt restart` - restarts the daemon for whatever reason you may need (it got killed, it's acting weird, whatever).
 
 ---
+# Development (meta)log
+
+March 16th 2016
 
 Whoops. There's a timing issue. The program has to access the file long enough to run the lsof command and get the output which doesn't happen on short commands. Also it doesn't seem like it captures the entire command when I run `lsof` in a process that I open.
 
@@ -101,7 +104,7 @@ Test like the following
     $ gcc inotifyt.c
     $ ./a.out
 
-Open a new shell. `a.out` will watch the `/home/adurvasu/` for file opening. To get an event long enough to detect, run the following:
+Open a new shell. `a.out` will watch the `/home/adurvasu/a.txt` for file opening. To get an event long enough to detect, run the following:
 
     $ awk '{while(1) print}' a.txt > /dev/null
     
